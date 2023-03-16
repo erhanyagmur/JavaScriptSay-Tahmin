@@ -1,0 +1,1 @@
+# JavaScriptSay-Tahmin
