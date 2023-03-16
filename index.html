@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>**Sayı Tahmin Oyunu**</title>
+<style type="text/css">
+#cerceve {
+	font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	background-color: #CCC;
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	width:300px;
+	
+	margin: 150px;
+	padding: 5px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+.orta{
+	text-align:center;
+}
+.yazi{
+	color:orange;
+	font-size:16px;
+	font-weight:bold;
+}
+</style>
+<script type="text/javascript">
+	var rastgele,sayi;
+	rastgele=Math.floor(Math.random()*20 + 1);
+	console.log(rastgele);
+	
+	function kontrol()
+	{
+		sayi=parseInt(document.getElementById("sayi").value);
+		
+		if(sayi>rastgele)
+		{
+			document.getElementById("ekran").innerHTML=sayi + " den küçük değer dene";
+			document.getElementById("sayi").value="";
+		}else if(rastgele>sayi)
+		{
+			document.getElementById("ekran").innerHTML=sayi + " den büyük değer dene";
+			document.getElementById("sayi").value="";
+		}else if(rastgele==sayi)
+		{
+			alert("Tebrikler Bildiniz..." + "Sayımız : " + sayi + " dir.");
+			document.getElementById("sayi").value="";
+			document.getElementById("ekran").innerHTML="";
+			rastgele=Math.floor(Math.random()*20 + 1);
+			console.log(rastgele);
+		}
+	}
+</script>
+</head>
+
+<body>
+<div id="cerceve">
+  <table width="265" border="0">
+    <tr>
+      <td colspan="3"><span class="yazi">**SAYI TAHMİN OYUNU**</span></td>
+    </tr>
+    <tr>
+      <td>Tahmin Et</td>
+      <td>:</td>
+      <td><input type="text" name="sayi" id="sayi" placeholder="(1-20)" autofocus></td>
+    </tr>
+    <tr class="orta">
+      <td colspan="3"><input type="button" name="tahminet" id="tahminet" value="Kontrol Et"
+      onClick="kontrol()"></td>
+    </tr>
+    <tr class="orta">
+      <td colspan="3"><h2 id="ekran"></h2></td>
+    </tr>
+  </table> 
+
+
+</div>
+</body>
+</html>
